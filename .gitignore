@@ -1,0 +1,8 @@
+# Editors
+.idea
+
+# OS metadata
+.DS_Store
+
+# Ignore built ts files
+dist/**/*
