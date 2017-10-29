@@ -10,18 +10,33 @@ const projectSchema=new mongoose.Schema({
     endTime:Number,
     reward:Number,
     pics:Array,
-    process:Number,
+    process:{
+        type:Number,
+        enum:[0,1,2,3,4]
+    },
     intro:String,
     require:[
         {
             name:String,
             cont:String,
-            process:Number
+            process:{
+                type:Number,
+                enum:[-1,0,1]
+            }
         }
     ],
-    like
+    likeNum:{
+        type:Number,
+        min:0
+    },
+    disLikeNum:{
+        type:Number,
+        min:0
+    }
 
-})
+},{ timestamps: true })
+
+
 
 /*project：{
  name:string,

@@ -6,14 +6,14 @@ import * as crypto from "crypto";
 import * as mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-    id:{type:Number,unique:true},
-    name:{type:String,required:true},
-    password:{type:String,required:true},
-    emailAddress:{type:String,unique:true},
-    gender:Number,
-    avatar:String,
-    regTime:Number
-})
+    id: {type: Number, unique: true},
+    name: {type: String, required: true},
+    password: {type: String, required: true},
+    emailAddress: {type: String, unique: true},
+    gender: Number,
+    avatar: String,
+    regTime: Number
+}, {timestamps: true})
 
 
 /*user:{
@@ -24,3 +24,7 @@ const userSchema = new mongoose.Schema({
  gender:0|1,
  avatar:string
  }*/
+
+
+const User = mongoose.model('User',userSchema);
+export default User;

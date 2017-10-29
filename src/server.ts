@@ -42,9 +42,16 @@ mongoose.connection.on('open', () => {
 /**
  * express router config
  */
+app.set("views", path.join(__dirname, "../views")); // 绑定MVC中的View层
+app.set("view engine", "pug"); // 使用渲染引擎
+app.use(logger("dev"));
+
+
+
 app.get('/',(req,res)=>{
-    res.send("hello2")
+    res.render('home')
 });
+
 
 
 /**
