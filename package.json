@@ -24,10 +24,11 @@
     "request": "^2.78.0"
   },
   "scripts": {
-    "dev": " concurrently -k -p \"[{name}]\" -n \"Watcher,Server\" -c \"green.bold,cyan.bold\"  \"npm run watch-ts\" \"npm run serve\"",
+    "dev": " concurrently -k -p \"[{name}]\" -n \"SCSS,TypeScript,Server\" -c \"magenta,green.bold,cyan.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run serve\"",
     "serve": "mongodbURI=localhost:27017/club PORT=4333 nodemon ./dist/server.js",
     "build-ts": "tsc",
     "watch-ts": "tsc -w",
+    "watch-sass": "node-sass -w src/public/css/main.scss dist/public/css/main.css",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "watch": "concurrently -k -p \"[{name}]\" -n \"Sass,TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-sass\" \"npm run watch-ts\" \"npm run serve\""
   },
