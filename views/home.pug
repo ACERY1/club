@@ -10,7 +10,7 @@ html
 		link(rel='stylesheet',href='/css/main.css')
 	body
 		h1.text-center LOGIN CENTER
-
+		h1 #{name}
 		form.form-horizontal(method="post",action='/login')
 			.form-group
 				label.control-label.col-lg-3(for="username") 用户名
@@ -22,7 +22,7 @@ html
 					input.form-control(type="password",name="password",id="password",placeholder="Password",required=)
 			.form-group
 				.col-sm-offset-2.col-sm-8
-					button.btn.center-block(type='submit')
+					button.btn.btn-primary.center-block(type='submit')
 						i.icon-circle-arrow-right
 						| login
 
