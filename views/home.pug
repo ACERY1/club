@@ -9,10 +9,22 @@ html
 		title hello
 		link(rel='stylesheet',href='/css/main.css')
 	body
-		h1 hello world
-		div.row
-			div.col-md-1 hello
-			div.col-md-1 world
-			i.fa.fa-camera-retro 222
+		h1.text-center LOGIN CENTER
+
+		form.form-horizontal(method="post",action='/login')
+			.form-group
+				label.control-label.col-lg-3(for="username") 用户名
+				.col-lg-7
+					input.form-control(type='text',name="username",id="username",placeholder="username",autofocus,required)
+			.form-group
+				label.control-label.col-lg-3(for="password") 密码
+				.col-lg-7
+					input.form-control(type="password",name="password",id="password",placeholder="Password",required=)
+			.form-group
+				.col-sm-offset-2.col-sm-8
+					button.btn.center-block(type='submit')
+						i.icon-circle-arrow-right
+						| login
+
 	script(src='/js/lib/jquery-3.1.1.min.js')
 	script(src='/js/lib/bootstrap.min.js')

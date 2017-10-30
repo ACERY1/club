@@ -1,5 +1,7 @@
-@import "lib/bootstrap/bootstrap";
-@import "lib/font-awesome/font-awesome";
+@import "lib/bootstrap/bootstrap";  // 使用BootStrap
+@import "lib/font-awesome/font-awesome";  // 载入icon
+@import "normalize";  // 规范化默认样式
+
 
 html{
   padding:0;

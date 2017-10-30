@@ -53,6 +53,9 @@ app.use(express.static(path.join(__dirname, "public"), { maxAge: 31557600000 }))
 app.get('/',(req,res)=>{
     res.render('home')
 });
+app.get('/login',(req,res)=>{
+
+});
 
 
 
