@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
     gender: Number,
     avatar: String,
     regTime: Number
-}, {timestamps: true})
+}, {timestamps: true});
 
 
 /*user:{
@@ -26,5 +26,7 @@ const userSchema = new mongoose.Schema({
  }*/
 
 
-const User = mongoose.model('User',userSchema);
+const User = mongoose.model("User",userSchema);
+
+
 export default User;

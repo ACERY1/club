@@ -50,12 +50,12 @@ app.use(logger("dev"));  // 使用express 自带 logger -Morgan /*dev common com
 app.use(bodyParser.json());  // 处理http请求body里的application/json数据
 app.use(bodyParser.urlencoded({extended: false}));  // for application/x-www-form-urlencoded
 app.use(express.static(path.join(__dirname, "public"), {maxAge: 31557600000})); // 使用express静态转发，/js将转发到/public/js
-// app.use(expressValidator());
+app.use(expressValidator());
 app.use(session({
     resave: true,  // 同客户端并行请求是否允许覆盖
     saveUninitialized: true,  // 初始化session时是否保存到存储
-    secret: "clubSession"
-}));
+    secret: "sessionId" // session 签名
+})); // 使用session
 app.use(flash());
 
 
@@ -63,7 +63,7 @@ app.use(flash());
  * express router configuration
  */
 app.get('/', (req, res) => {
-    res.render('home',{name:req.session.name||'no login'})
+    res.render('home')
 });
 app.post('/login', userController.postLogin);
 
