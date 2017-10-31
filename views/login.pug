@@ -1,0 +1,32 @@
+//
+    Created by Acery on 2017/10/29.
+
+doctype html
+html
+   head
+      meta(charset='utf-8')
+      meta(name='viewport', content='width=device-width, initial-scale=1.0')
+      title hello
+      link(rel='stylesheet',href='/css/main.css')
+   body
+      h1.text-center LOGIN CENTER
+      if messages.errors
+         h1 #{messages.errors[0].msg}
+      form.form-horizontal(method="post",action='/login')
+         .form-group
+            label.control-label.col-lg-3(for="username") 用户名
+            .col-lg-7
+               input.form-control(type='text',name="username",id="username",placeholder="username",autofocus,required)
+         .form-group
+            label.control-label.col-lg-3(for="password") 密码
+            .col-lg-7
+               input.form-control(type="password",name="password",id="password",placeholder="Password",required=)
+         .form-group
+            .col-sm-offset-2.col-sm-8
+               button.btn.btn-primary.center-block(type='submit')
+                  i.icon-circle-arrow-right
+                  | login
+
+   script(src='/js/lib/jquery-3.1.1.min.js')
+   script(src='/js/lib/bootstrap.min.js')
+

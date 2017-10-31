@@ -22,20 +22,12 @@ export let postLogin = (req: Request, res: Response, next: NextFunction) => {
         id:1,
         name:'default',
 
-
-        /*    id: {type: Number, unique: true},
-         name: {type: String, required: true},
-         password: {type: String, required: true},
-         emailAddress: {type: String, unique: true},*/
     });
 
-    user.save((d1,d2)=>{
-    })
-    User.find({},(d1,d2)=>{
-        console.log(d1)
-        console.log(d2)
-        // user.save()
-    })
+    // user.save((d1,d2)=>{
+    // })
+
+
 
 
     res.end("ok")

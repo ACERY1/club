@@ -27,13 +27,13 @@ const port = process.env.PORT || 3000;
  */
 mongoose.connect(process.env.mongodbURI);
 
-mongoose.connection.on('error', () => {
+mongoose.connection.on('error', () =>
     console.log('mongodb connection error!')
-});
+);
 
-mongoose.connection.on('open', () => {
+mongoose.connection.on('open', () =>
     console.log('mongodb connection success')
-});
+);
 
 /**
  * Controllers
