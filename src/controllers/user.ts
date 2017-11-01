@@ -13,7 +13,7 @@ export let postLogin = (req: Request, res: Response, next: NextFunction) => {
 
     // console.log(errors)
     if (errors) {
-        req.flash("errors", errors);
+        req.flash("errors", errors); // errors 被包装进messages里
         return res.redirect("/");
     }
     const user = new User({

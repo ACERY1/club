@@ -1,0 +1,24 @@
+extends home
+
+block content
+	h1.text-center Register Center
+
+	form(method="post" action="/register")
+		.form-group
+			label(for="email") 输入你的邮箱
+			input(type="email" id="email" placeholder="EmailAddress").form-control
+		.form-group
+			label(for="username") 输入你的用户名
+			input(type="text" id="username" placeholder="Username").form-control
+		.form-group
+			label(for="password") 输入你的密码
+			input(type="password" id="password" placeholder="Password").form-control
+		.form-group
+			label(for="rePassword") 再次输入你的密码
+			input(type="password" id="rePassword" placeholder="Retype Your Password").form-control
+		.form-group
+			button.btn.btn-success.center-block(type="submit") 注册
+
+			br
+			u.text-center.col-xs-12
+				a(href="/login") 返回登录

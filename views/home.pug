@@ -7,10 +7,16 @@ html
 		meta(name='viewport', content='width=device-width, initial-scale=1.0')
 		title hello
 		link(rel='stylesheet',href='/css/main.css')
+		style.
+			.cont{
+				margin-top: 6rem;
+			}
 	body
 		include components/header
 
-
+		.container.cont
+			include components/message
+			block content
 
 		include components/footer
 
