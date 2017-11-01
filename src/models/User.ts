@@ -4,6 +4,7 @@
 import * as bcrypt from "bcrypt-nodejs";
 import * as crypto from "crypto";
 import * as mongoose from "mongoose";
+import id from './Ids'
 
 const userSchema = new mongoose.Schema({
     id: {type: Number, unique: true},
@@ -24,6 +25,10 @@ const userSchema = new mongoose.Schema({
  gender:0|1,
  avatar:string
  }*/
+
+userSchema.pre('save',function () {
+   console.log('fuck')
+});
 
 
 const User = mongoose.model("User",userSchema);

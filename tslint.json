@@ -16,17 +16,17 @@
     ],
     "no-var-keyword": true,
     "quotemark": [
-      true,
+      false,
       "double",
       "avoid-escape"
     ],
     "semicolon": [
-      true,
+      false,
       "always",
       "ignore-bound-class-methods"
     ],
     "whitespace": [
-      true,
+      false,
       "check-branch",
       "check-decl",
       "check-operator",
