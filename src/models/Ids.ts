@@ -8,11 +8,6 @@ const IDSchema = new mongoose.Schema({
     name: String,
 });
 
-IDSchema.pre('save',function (next) {
-    console.log('fuck')
-    next()
-});
-
 const ID = mongoose.model("ID",IDSchema);
 
 export default ID;
