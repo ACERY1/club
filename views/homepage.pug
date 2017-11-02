@@ -1,0 +1,13 @@
+extends home
+
+block content
+	if userInfo
+		.jumbotron
+			h1 Hello,#{userInfo.name}!
+			p 看到这个说明你已经登录成功了，前后端采用的是MVC，数据库是mongodb,技术栈是node+express+typescript+mongoose+pug
+			a.thumbnail
+				img(src=userInfo.avatar)
+	if !userInfo
+		p1 你还没登录
+
+

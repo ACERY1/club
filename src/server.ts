@@ -60,24 +60,41 @@ app.use(flash());
 
 
 /**
- * express router configuration
+ * express get to render configuration
  */
 app.get('/', (req, res) => {
-    res.render('home')
+    res.render('homepage',{userInfo:req.session.userInfo})
 });
 app.get('/login', (req, res) => {
     res.render('login')
-});
+}); // 登录
 app.get('/register', (req, res) => {
     res.render('register')
-});
+}); // 注册
+app.get('/homepage', (req, res) => {
+    res.render('homepage',{userInfo:req.session.userInfo})
+}); // 首页
+
+app.get('/matches',(req,res)=>{
+    res.render('matches')
+}); // 首页
+
+
+/**
+ * express post to response configuration
+ */
 app.post('/login', userController.postLogin);
 app.post('/register', userController.postRegister);
+app.post('/apply/matches');
 
-/*res.render('home',{name:req.session.name||'no login'})*/
 
+
+/**
+ * 404 not found page
+ */
 app.get('*', (req, res) => {
-    res.end('fucking error');
+    // res.end('fucking error');
+    res.render('notFound')
 }); // 404处理
 
 

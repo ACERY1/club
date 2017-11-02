@@ -7,17 +7,45 @@ import {Request, Response, NextFunction} from 'express'
 const request = require("express-validator");
 
 export let postLogin = (req: Request, res: Response, next: NextFunction) => {
+    req.assert('email','email is valid').isEmail();
+    // req.assert('password','passowrd not empty').isEmpty();
 
+    const errors = req.validationErrors();
 
+    if (errors) {
+        req.flash('errors', errors);
+        return res.redirect('/login');
+    }
 
+    User.findOne({emailAddress: req.body.email}, 'password avatar name', (err, user) => {
+        if (err) {
+            req.flash('errors', {msg: err._message});
+            return res.redirect('/login');
+        }
+
+        if(!user){
+            req.flash('errors', {msg:"the user is not exist"});
+            return res.redirect('/login');
+        }
+
+        if (user.password == req.body.password) {
+            req.session.userInfo = {
+                avatar: user.avatar,
+                name: user.name
+            };
+            res.redirect('/homepage');
+
+        } else {
+            req.flash('errors', {msg: "wrong password"});
+            return res.redirect('/login');
+        }
+    });
 
 
     // req.assert("username", "Email is not valid").isEmail();
     // // req.assert("password",)
     // // req.session.name=req.body.username;
     // const errors = req.validationErrors();
-
-
 
 
     // console.log(errors)
@@ -37,7 +65,7 @@ export let postLogin = (req: Request, res: Response, next: NextFunction) => {
     // })
 
 
-    res.end("ok")
+    // res.end("ok")
 
 };
 
@@ -122,9 +150,3 @@ export let postRegister = (req: Request, res: Response, next: NextFunction) => {
     // console.log(req.body);
 
 };
-
-/*[Server] { email: '841034081@qq.com',
- [Server]   username: 'w1w2w',
- [Server]   password: 'dsada',
- [Server]   rePassword: 'dasdas' }
- */
