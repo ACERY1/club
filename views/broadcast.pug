@@ -1,0 +1,45 @@
+extends home
+
+block append head
+	link(rel="stylesheet", type="text/css", href='/css/plugins/banner.css')
+
+block content
+	style.
+		.broadcastCont{
+			margin-top: -6rem;
+			width: 100vw;
+			height: 100vh;
+			background: #3b3b3b;
+			display: flex;
+			justify-content: center;
+		}
+
+
+
+	.broadcastCont
+		.banner#banner1
+			.banner-view
+			.banner-btn
+			.banner-number
+			.banner-progres
+
+block append foot
+	script(src="/js/lib/banner.js")
+	script.
+		var banner = new FragmentBanner({
+			container: "#banner1",//选择容器 必选
+			imgs: ['images/a1.png', 'images/a2.png', 'images/a3.png', 'images/a4.png', 'images/a5.png'],//图片集合 必选
+			size: {
+				width: 1000,
+				height: 560
+			},//容器的大小 可选
+			//行数与列数 可选
+			grid: {
+				line: 12,
+				list: 14
+			},
+			index: 0,//图片集合的索引位置 可选
+			type: 2,//切换类型 1 ， 2 可选
+			boxTime: 5000,//小方块来回运动的时长 可选
+			fnTime: 15000//banner切换的时长 可选
+		});

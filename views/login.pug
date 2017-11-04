@@ -2,23 +2,24 @@ extends home
 
 
 block content
-	h1.text-center StarAI
-	form.form-horizontal(method="post",action='/login')
-		.form-group
-			label.control-label.col-lg-3(for="email") 邮箱
-			.col-lg-7
-				input.form-control(type='email',name="email",id="email",placeholder="Email Address",autofocus,required)
-		.form-group
-			label.control-label.col-lg-3(for="password") 密码
-			.col-lg-7
-				input.form-control(type="password",name="password",id="password",placeholder="Password",required=)
-		.form-group
-			.col-lg-7.col-lg-offset-4.col-sm-offset-3
-				button.btn.btn-primary.center-block(type='submit').col-lg-7.col-sm-7
-					i.icon-circle-arrow-right
-					| login
+	.container
+		h1.text-center StarAI
+		form.form-horizontal(method="post",action='/login')
+			.form-group
+				label.control-label.col-lg-3(for="email") 邮箱
+				.col-lg-7
+					input.form-control(type='email',name="email",id="email",placeholder="Email Address",autofocus,required)
+			.form-group
+				label.control-label.col-lg-3(for="password") 密码
+				.col-lg-7
+					input.form-control(type="password",name="password",id="password",placeholder="Password",required=)
+			.form-group
+				.col-lg-7.col-lg-offset-4.col-sm-offset-3
+					button.btn.btn-primary.center-block(type='submit').col-lg-7.col-sm-7
+						i.icon-circle-arrow-right
+						| login
 
-				br
-				u.col-xs-12.text-center
-					a(href="/register") 没有账户？
+					br
+					u.col-xs-12.text-center
+						a(href="/register") 没有账户？
 

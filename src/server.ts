@@ -77,8 +77,11 @@ app.get('/homepage', (req, res) => {
 
 app.get('/matches',(req,res)=>{
     res.render('matches')
-}); // 首页
+}); // 比赛
 
+app.get('/broadcast',(req,res)=>{
+    res.render('broadcast')
+}); // 首页
 
 /**
  * express post to response configuration
