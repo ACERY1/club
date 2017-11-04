@@ -6,7 +6,7 @@ import Id from '../models/Ids'
 import {Request, Response, NextFunction} from 'express'
 const request = require("express-validator");
 
-export let postLogin = (req: Request, res: Response, next: NextFunction) => {
+export let postLogin = (req, res, next: NextFunction) => {
     req.assert('email','email is valid').isEmail();
     // req.assert('password','passowrd not empty').isEmpty();
 
@@ -69,7 +69,7 @@ export let postLogin = (req: Request, res: Response, next: NextFunction) => {
 
 };
 
-export let postRegister = (req: Request, res: Response, next: NextFunction) => {
+export let postRegister = (req, res, next: NextFunction) => {
     /*验证字段*/
     req.assert('email', 'Email is not valid').isEmail();
     req.assert('username', 'Username is not valid,length must be 4~16').isLength({min: 4, max: 16});
