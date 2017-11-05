@@ -6,7 +6,7 @@ import Id from '../models/Ids'
 import {Request, Response, NextFunction} from 'express'
 const request = require("express-validator");
 
-export let postLogin = (req, res, next: NextFunction) => {
+export let postLogin = (req, res, next) => {
     req.assert('email','email is valid').isEmail();
     // req.assert('password','passowrd not empty').isEmpty();
 
@@ -17,7 +17,7 @@ export let postLogin = (req, res, next: NextFunction) => {
         return res.redirect('/login');
     }
 
-    User.findOne({emailAddress: req.body.email}, 'password avatar name', (err, user) => {
+    User.findOne({emailAddress: req.body.email}, (err, user) => {
         if (err) {
             req.flash('errors', {msg: err._message});
             return res.redirect('/login');
@@ -29,10 +29,7 @@ export let postLogin = (req, res, next: NextFunction) => {
         }
 
         if (user.password == req.body.password) {
-            req.session.userInfo = {
-                avatar: user.avatar,
-                name: user.name
-            };
+            req.session.userInfo = user;
             res.redirect('/homepage');
 
         } else {
@@ -69,7 +66,7 @@ export let postLogin = (req, res, next: NextFunction) => {
 
 };
 
-export let postRegister = (req, res, next: NextFunction) => {
+export let postRegister = (req, res, next) => {
     /*验证字段*/
     req.assert('email', 'Email is not valid').isEmail();
     req.assert('username', 'Username is not valid,length must be 4~16').isLength({min: 4, max: 16});

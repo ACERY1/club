@@ -67,22 +67,26 @@ app.get('/', (req, res) => {
     res.render('homepage',{userInfo:req.session.userInfo})
 });
 app.get('/login', (req, res) => {
-    res.render('login')
+    res.render('login',{userInfo:req.session.userInfo})
 }); // 登录
 app.get('/register', (req, res) => {
-    res.render('register')
+    res.render('register',{userInfo:req.session.userInfo})
 }); // 注册
 app.get('/homepage', (req, res) => {
     res.render('homepage',{userInfo:req.session.userInfo})
 }); // 首页
 
 app.get('/matches',(req,res)=>{
-    res.render('matches')
+    res.render('matches',{userInfo:req.session.userInfo})
 }); // 比赛
 
 app.get('/broadcast',(req,res)=>{
-    res.render('broadcast')
-}); // 首页
+    res.render('broadcast',{userInfo:req.session.userInfo})
+}); // 宣传页
+
+app.get('/user',(req,res)=>{
+    res.render('user',{userInfo:req.session.userInfo})
+}); // 用户页面
 
 /**
  * express post to response configuration
@@ -98,7 +102,7 @@ app.post('/apply/matches');
  */
 app.get('*', (req, res) => {
     // res.end('fucking error');
-    res.render('notFound')
+    res.render('notFound',{userInfo:req.session.userInfo})
 }); // 404处理
 
 
