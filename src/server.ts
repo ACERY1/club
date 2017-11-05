@@ -88,6 +88,10 @@ app.get('/user',(req,res)=>{
     res.render('user',{userInfo:req.session.userInfo})
 }); // 用户页面
 
+app.get('/members',(req,res)=>{
+    res.render('members',{userInfo:req.session.userInfo})
+}); // 用户页面
+
 /**
  * express post to response configuration
  */
